@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ru.dev.colornotes">
+
+    <application
+        android:icon="@mipmap/ic_color_notes"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <!-- Activity списка заметок -->
+        <activity
+            android:name=".ActivityMain"
+            android:icon="@mipmap/ic_color_notes"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Activity добавления/редактирования заметки -->
+        <activity
+            android:name=".ActivityNote"
+            android:label="@string/activity_note_name"
+            android:icon="@mipmap/ic_color_notes">
+        </activity>
+
+        <!-- Activity списка заметок для множетвенного удаления -->
+        <activity android:name=".ActivityMultiDeleteNotes"></activity>
+
+        <!-- Widget -->
+        <receiver android:name=".WidgetNote">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_metadata">
+            </meta-data>
+        </receiver>
+
+        <activity
+            android:name=".ActivityWidgetConfig"
+            android:label="@string/activity_widget_config_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"></action>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

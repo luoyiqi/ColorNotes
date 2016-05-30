@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55sp"
+    android:descendantFocusability="blocksDescendants"
+    android:id="@+id/llItem">
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="54sp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:id="@+id/cbCheckItem"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/cbCheckItem"
+        android:layout_toRightOf="@+id/cbCheckItem"
+        android:id="@+id/ivPin"
+        android:src="@drawable/ic_pin"
+        android:contentDescription="@string/app_name"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="28sp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/cbCheckItem"
+        android:layout_toRightOf="@+id/cbCheckItem"
+        android:paddingStart="@dimen/item_margin_left"
+        android:paddingEnd="@dimen/item_margin_left"
+        android:paddingLeft="@dimen/item_margin_left"
+        android:text="@string/activity_note_name"
+        android:textSize="22sp"
+        android:id="@+id/tvItem">
+    </TextView>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="7sp"
+        android:layout_below="@id/tvItem"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/cbCheckItem"
+        android:layout_toRightOf="@+id/cbCheckItem"
+        android:paddingStart="@dimen/item_margin_left"
+        android:paddingEnd="@dimen/item_margin_left"
+        android:paddingLeft="@dimen/item_margin_left"
+        android:textSize="16sp"
+        android:text="@string/activity_note_name"
+        android:id="@+id/tvDateAdd">
+    </TextView>
+</RelativeLayout>

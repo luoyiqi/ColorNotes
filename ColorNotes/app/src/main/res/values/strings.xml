@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Заметки</string>
+    <string name="activity_note_name">Заметка</string>
+    <string name="activity_widget_config_name">Выберете заметку</string>
+
+    <!-- Главное меню приложения -->
+    <string name="menu_add">Добавить</string>
+    <string name="menu_delete">Удалить</string>
+    <string name="menu_search">Поиск</string>
+    <string name="menu_change_color">Изменить цвет</string>
+    <string name="menu_save">Сохранить</string>
+
+    <!-- Контекстное меню -->
+    <string name="context_menu_delete">Удалить</string>
+    <string name="context_menu_change_color">Изменить цвет</string>
+    <string name="context_menu_add_widget">Добавить виджет</string>
+    <string name="context_menu_delete_widget">Удалить виджет</string>
+
+    <!-- Кнопки -->
+    <string name="btn_save">Сохранить</string>
+    <string name="btn_not_save">Не сохранить</string>
+    <string name="btn_cancel">Отмена</string>
+    <string name="btn_negative">Нет</string>
+    <string name="btn_positive">Да</string>
+    <string name="btn_checked_all">Отметить все</string>
+
+    <!-- Заголовки  -->
+    <string name="titleError">Ошибка</string>
+    <string name="titleMessage">Сообщение</string>
+    <string name="titleConfirm">Подтверждение</string>
+    <string name="titleDialogColors">Цвет заметки</string>
+
+    <string name="textConfirmSave">Сохранить изменения?</string>
+    <string name="textConfirmDelete">Удалить заметку?</string>
+    <string name="textConfirmMultiDelete">Удалить выбранные заметки?</string>
+    <string name="textNotCheckedItems">Нет выбранных заметок для удаления</string>
+
+    <!-- Ошибки  -->
+    <string name="errorAdd">Ошибка добавления</string>
+    <string name="errorEdit">Ошибка редактирования</string>
+    <string name="errorDelete">Ошибка удаления</string>
+    <string name="errorDbCreate">Ошибка создания БД</string>
+    <string name="errorCursorLoaderManager">Ошибка менеджера загрузки данных</string>
+    <string name="errorGetData">Ошибка при получении данных</string>
+    <string name="errorFillData">Ошибка заполнения полей формы</string>
+    <string name="errorSetMethods">Ошибка назначения методов</string>
+    <string name="errorCreateDialogColor">Ошибка создания окна выбора цвета</string>
+    <string name="errorChangeColor">Ошибка изменения цвета</string>
+    <string name="errorActionBar">Ошибка задания параметров ActionBar</string>
+    <string name="errorOpenActivity">Ошибка открытия окна</string>
+    <string name="errorOpenAlertDialog">Ошибка открытия диалогового окна</string>
+    <string name="errorUnknown">Ошибка</string>
+
+    <string name="successSave">Сохранено</string>
+    <string name="banDeleteNote">Данную заметку удалить нельзя пока есть связанный с ней виджет</string>
+
+
+    <!-- Названия цветов -->
+    <string name="colorNameGreen">Зеленый</string>
+    <string name="colorNameYellow">Желтый</string>
+    <string name="colorNameBlue">Голубой</string>
+    <string name="colorNamePink">Розовый</string>
+    <string name="colorNamePurple">Фиолетовый</string>
+    <string name="colorNameWhite">Белый</string>
+</resources>

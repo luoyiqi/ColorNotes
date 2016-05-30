@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#454545</color> <!-- color ActionBar -->
+    <color name="colorPrimaryDark">#000000</color> <!-- color StatusBar -->
+    <color name="colorAccent">#000000</color>
+
+    <color name="colorNoteGreen">#dff4dc</color>
+    <color name="colorNoteGreenDark">#1f8667</color>
+
+    <color name="colorNoteYellow">#f7f6c8</color>
+    <color name="colorNoteYellowDark">#ffcc00</color>
+
+    <color name="colorNoteBlue">#dcf0f7</color>
+    <color name="colorNoteBlueDark">#07bdf9</color>
+
+    <color name="colorNotePink">#f4d7f3</color>
+    <color name="colorNotePinkDark">#ed5ee8</color>
+
+    <color name="colorNotePurple">#dbd7f2</color>
+    <color name="colorNotePurpleDark">#8977ef</color>
+
+    <color name="colorNoteWhite">#ffffff</color>
+    <color name="colorNoteWhiteDark">#aaaaaa</color>
+</resources>
