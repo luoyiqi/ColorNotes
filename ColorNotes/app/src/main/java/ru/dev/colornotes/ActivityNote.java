@@ -214,46 +214,6 @@ public class ActivityNote extends AppCompatActivity implements DialogColors.OnDi
     }
 
     /**
-     * Подтверждение сохранения заметки
-     */
-    /*private void confirmSave() {
-        try {
-            if (etNote.getText().toString().trim().equals("") || etNote.getText().toString().trim().equals(oldTextNote)) {
-                finish();
-                return;
-            }
-            // обработчик кнопки "Сохранить"
-            DialogInterface.OnClickListener saveNoteClick = new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    try {
-                        if (saveNote()) {
-                            finish();
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            };
-            // обработчик кнопки "Не сохранять"
-            DialogInterface.OnClickListener notSaveClick = new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    try {
-                        dialog.cancel();
-                        finish();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            };
-            AlertDialogWindow.showConfirmMessage(this, R.string.titleConfirm, R.string.textConfirmSave, R.drawable.ic_save, R.string.btn_negative, R.string.btn_positive, saveNoteClick, notSaveClick);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
-
-    /**
      * Реализация метода onSetColor интерфейса DialogColors.OnDialogColorsResultListener выбора цвета
      * @param idNote ИД заметки
      * @param color цвет заметки
