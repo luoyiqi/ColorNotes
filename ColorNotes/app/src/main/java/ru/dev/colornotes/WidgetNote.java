@@ -25,11 +25,16 @@ public class WidgetNote extends AppWidgetProvider {
 
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {
-        super.onDeleted(context, appWidgetIds);
+        try {
+            super.onDeleted(context, appWidgetIds);
 
-        for (int idWidget : appWidgetIds) {
-            // удаляем привязку заметки и виджета
-            DB.init(context).unSetWidget(idWidget);
+            DB.init(context).openConnection();
+            for (int idWidget : appWidgetIds) {
+                // удаляем привязку заметки и виджета
+                DB.getInstance().unsetWidget(idWidget);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

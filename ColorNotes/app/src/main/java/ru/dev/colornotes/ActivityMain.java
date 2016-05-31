@@ -248,7 +248,7 @@ public class ActivityMain extends AppCompatActivity implements LoaderManager.Loa
                             }
                         }
                         // виджета нет, но связка с ним почему-то осталась, удаляем эту связку
-                        DB.getInstance().unSetWidget(idWidget);
+                        DB.getInstance().unsetWidget(idWidget);
                     }
                 }
 

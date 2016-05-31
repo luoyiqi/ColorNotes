@@ -231,7 +231,7 @@ public class DB implements Serializable {
      * Удаление привязки виджета к какой-либо заметке
      * @param idWidget ИД виджета
      */
-    public void unSetWidget(int idWidget) {
+    public void unsetWidget(int idWidget) {
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_ID_WIDGET, AppWidgetManager.INVALID_APPWIDGET_ID);
 
@@ -259,28 +259,7 @@ public class DB implements Serializable {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            String sql;
-            try {
-                sql = "CREATE TABLE new_" + TABLE_NOTES + " (" +
-                        COLUMN_ID_NOTE + " integer primary key, " +
-                        COLUMN_TEXT_NOTE + " text," +
-                        COLUMN_DATE_ADD + " integer DEFAULT 0, " +
-                        COLUMN_COLOR + " integer DEFAULT 0, " +
-                        COLUMN_ID_WIDGET + " integer DEFAULT 0 " +
-                        ");";
-                db.execSQL(sql);
-                sql = "INSERT INTO new_" + TABLE_NOTES + " SELECT " +
-                        COLUMN_ID_NOTE + ", " +
-                        COLUMN_TEXT_NOTE + ", " +
-                        COLUMN_DATE_ADD + ", " +
-                        COLUMN_COLOR + "," +
-                        "0 as " + COLUMN_ID_WIDGET + " FROM " + TABLE_NOTES + ";";
-                db.execSQL(sql);
-                db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTES + ";");
-                db.execSQL("ALTER TABLE new_" + TABLE_NOTES + " RENAME TO " + TABLE_NOTES + ";");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+
         }
     }
 }
