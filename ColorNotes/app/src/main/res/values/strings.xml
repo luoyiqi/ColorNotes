@@ -53,6 +53,7 @@
 
     <string name="successSave">Сохранено</string>
     <string name="banDeleteNote">Данную заметку удалить нельзя пока есть связанный с ней виджет</string>
+    <string name="textFirstNote">Первая заметка!</string>
 
 
     <!-- Названия цветов -->
@@ -62,4 +63,8 @@
     <string name="colorNamePink">Розовый</string>
     <string name="colorNamePurple">Фиолетовый</string>
     <string name="colorNameWhite">Белый</string>
+    <string name="colorNameRed">Красный</string>
+    <string name="colorNameOrange">Оранжевый</string>
+    <string name="colorNameBrown">Коричневый</string>
+    <string name="colorNameSea">Синий</string>
 </resources>

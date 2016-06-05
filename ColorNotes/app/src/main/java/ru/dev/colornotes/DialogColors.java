@@ -20,22 +20,38 @@ import android.widget.GridView;
 public class DialogColors extends DialogFragment {
 
     public long idNote;
-    public static final int[] arrayColors = new int[] {
-        R.color.colorNoteGreen,
-        R.color.colorNoteYellow,
-        R.color.colorNoteBlue,
-        R.color.colorNotePink,
-        R.color.colorNotePurple,
-        R.color.colorNoteWhite
-    };
-    private static final int[] arrayColorsDark = new int[] {
-        R.color.colorNoteGreenDark,
-        R.color.colorNoteYellowDark,
-        R.color.colorNoteBlueDark,
-        R.color.colorNotePinkDark,
-        R.color.colorNotePurpleDark,
-        R.color.colorNoteWhiteDark
-    };
+    private static int[] arrayColors = getArrayColors();
+    private static int[] arrayColorsDark = getArrayColorsDark();
+
+    public static int[] getArrayColors() {
+        return arrayColors == null ? new int[] {
+                R.color.colorNoteGreen,
+                R.color.colorNoteYellow,
+                R.color.colorNoteBlue,
+                R.color.colorNotePink,
+                R.color.colorNotePurple,
+                R.color.colorNoteWhite,
+                R.color.colorNoteRed,
+                R.color.colorNoteOrange,
+                R.color.colorNoteBrown,
+                R.color.colorNoteSea
+        } : arrayColors;
+    }
+
+    public static int[] getArrayColorsDark() {
+        return arrayColorsDark == null ? new int[] {
+                R.color.colorNoteGreenDark,
+                R.color.colorNoteYellowDark,
+                R.color.colorNoteBlueDark,
+                R.color.colorNotePinkDark,
+                R.color.colorNotePurpleDark,
+                R.color.colorNoteWhiteDark,
+                R.color.colorNoteRedDark,
+                R.color.colorNoteOrangeDark,
+                R.color.colorNoteBrownDark,
+                R.color.colorNoteSeaDark
+        } : arrayColorsDark;
+    }
 
     // интерфейс выбора цвета для передачи результата в родительскую activity
     public interface OnDialogColorsResultListener {
@@ -83,7 +99,11 @@ public class DialogColors extends DialogFragment {
                     getActivity().getResources().getString(R.string.colorNameBlue),
                     getActivity().getResources().getString(R.string.colorNamePink),
                     getActivity().getResources().getString(R.string.colorNamePurple),
-                    getActivity().getResources().getString(R.string.colorNameWhite)
+                    getActivity().getResources().getString(R.string.colorNameWhite),
+                    getActivity().getResources().getString(R.string.colorNameRed),
+                    getActivity().getResources().getString(R.string.colorNameOrange),
+                    getActivity().getResources().getString(R.string.colorNameBrown),
+                    getActivity().getResources().getString(R.string.colorNameSea)
             };
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.item_color, arrayColorsName){
                 @Override

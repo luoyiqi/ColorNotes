@@ -79,26 +79,18 @@ public class ActivityNote extends AppCompatActivity implements DialogColors.OnDi
                 AlertDialogWindow.showMessage(this, R.string.titleError, R.string.errorFillData, R.drawable.ic_error, e);
                 finish();
             }
-
-            try {
-                // при клике на текстовое поле показывать клавиатуру
-                etNote.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //etNote.requestFocusFromTouch();
-                        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                        imm.showSoftInput(etNote, 0);
-                    }
-                });
-
-            } catch (Exception e) {
-                AlertDialogWindow.showMessage(this, R.string.titleError, R.string.errorSetMethods, R.drawable.ic_error, e);
-                finish();
-            }
         } catch (Exception e) {
             e.printStackTrace();
             finish();
         }
+    }
+
+    /**
+     * Показывает клавиатуру при клике на поле ввода и на свободное место заметки
+     * @param v View-элемент, по которому сработало событие onClick
+     */
+    public void showSoftInput(View v) {
+        ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(etNote, 0);
     }
 
     @Override

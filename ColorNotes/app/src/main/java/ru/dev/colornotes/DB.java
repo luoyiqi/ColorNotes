@@ -6,7 +6,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+
 import java.io.Serializable;
 
 /**
@@ -255,6 +257,20 @@ public class DB implements Serializable {
         public void onCreate(SQLiteDatabase db) {
             // создаем таблицу TABLE_NOTES
             db.execSQL(CREATE_TABLE_NOTES);
+
+            // создаем первую заметку
+            ContentValues cv = new ContentValues();
+            int time = (int)((new java.util.Date()).getTime()/1000);
+
+            // цвет создаваемой заметки задаем рандомно
+            // генерируем случайное число в диапозоне от 0 до кол-ва цветов
+            int numColor = ActivityMain.getRandom().nextInt(DialogColors.getArrayColors().length);
+            int color = DialogColors.getArrayColors()[numColor];
+
+            cv.put(DB.COLUMN_TEXT_NOTE, context.getResources().getString(R.string.textFirstNote));
+            cv.put(DB.COLUMN_COLOR, ContextCompat.getColor(context, color));
+            cv.put(DB.COLUMN_DATE_ADD, time);
+            db.insert(TABLE_NOTES, null, cv);
         }
 
         @Override

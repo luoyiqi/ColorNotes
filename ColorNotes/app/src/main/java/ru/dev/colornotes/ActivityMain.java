@@ -37,7 +37,15 @@ public class ActivityMain extends AppCompatActivity implements LoaderManager.Loa
     private final int CM_CHANGE_COLOR_ID = 2;
 
     private DialogColors dialogColors;
-    private Random random;
+    private static Random random;
+
+    private ListView lvNotes;
+    private int countItems;
+
+    public static Random getRandom() {
+        random = (random == null) ? new Random(System.currentTimeMillis()) : random;
+        return random;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +87,7 @@ public class ActivityMain extends AppCompatActivity implements LoaderManager.Loa
 
                 adapter = new SimpleCursorAdapterListNotes(this, R.layout.item, null, from, to, 0, false);
 
-                ListView lvNotes = ((ListView) findViewById(R.id.lvNotes));
+                lvNotes = ((ListView) findViewById(R.id.lvNotes));
                 lvNotes.setAdapter(adapter);
 
                 // создаем лоадер для чтения данных
@@ -112,6 +120,7 @@ public class ActivityMain extends AppCompatActivity implements LoaderManager.Loa
             menu.add(0, MENU_DELETE_ID, 0, R.string.menu_delete)
                     .setIcon(R.drawable.ic_trash)
                     .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+            menu.findItem(MENU_DELETE_ID).setVisible(lvNotes.getCount() > 0);
             menu.add(0, MENU_ADD_ID, 0, R.string.menu_add)
                     .setIcon(R.drawable.ic_add)
                     .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
@@ -127,44 +136,51 @@ public class ActivityMain extends AppCompatActivity implements LoaderManager.Loa
         try {
             // выбор конкретного пункта меню
             Intent intent;
-            int id = item.getItemId();
-            switch (item.getItemId()) {
-                case MENU_ADD_ID:
-                    try {
-                        intent = new Intent(this, ActivityNote.class);
-                        intent.putExtra(DB.COLUMN_ID_NOTE, 0);
-                        intent.putExtra(DB.COLUMN_TEXT_NOTE, "");
 
-                        // цвет создаваемой заметки задаем рандомно
-                        // генерируем случайное число в диапозоне от 0 до кол-ва цветов
-                        int numColor = random.nextInt(DialogColors.arrayColors.length);
-                        int color = DialogColors.arrayColors[numColor];
-                        intent.putExtra(DB.COLUMN_COLOR, ContextCompat.getColor(this, color));
-
-                        startActivityForResult(intent, REQUEST_CODE_ACTIVITY_NOTE);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        AlertDialogWindow.showMessage(this, R.string.titleError, R.string.errorOpenActivity, R.drawable.ic_error, e);
-                    }
-                    break;
-                case MENU_DELETE_ID:
-                    try {
-                        intent = new Intent(this, ActivityMultiDeleteNotes.class);
-                        startActivityForResult(intent, 1);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        AlertDialogWindow.showMessage(this, R.string.titleError, R.string.errorOpenActivity, R.drawable.ic_error, e);
-                    }
-                    break;
-                case android.R.id.home:
-                    finish();
-                    break;
+            if (item.getItemId() == MENU_ADD_ID) {
+                try {
+                    intent = getIntentForAddNote(this);
+                    startActivityForResult(intent, REQUEST_CODE_ACTIVITY_NOTE);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    AlertDialogWindow.showMessage(this, R.string.titleError, R.string.errorOpenActivity, R.drawable.ic_error, e);
+                }
+            } else if (item.getItemId() == MENU_DELETE_ID) {
+                try {
+                    intent = new Intent(this, ActivityMultiDeleteNotes.class);
+                    startActivityForResult(intent, 1);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    AlertDialogWindow.showMessage(this, R.string.titleError, R.string.errorOpenActivity, R.drawable.ic_error, e);
+                }
+            } else if (item.getItemId() == android.R.id.home) {
+                finish();
             }
             return super.onOptionsItemSelected(item);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
+    }
+
+    /**
+     * Формирование объекта типа Intent для старта activity при добавлении заметки
+     * @param context контекст
+     * @return Intent
+     */
+    public static Intent getIntentForAddNote(Context context) {
+        Intent intent = new Intent(context, ActivityNote.class);
+
+        intent.putExtra(DB.COLUMN_ID_NOTE, 0);
+        intent.putExtra(DB.COLUMN_TEXT_NOTE, "");
+
+        // цвет создаваемой заметки задаем рандомно
+        // генерируем случайное число в диапозоне от 0 до кол-ва цветов
+        int numColor = getRandom().nextInt(DialogColors.getArrayColors().length);
+        int color = DialogColors.getArrayColors()[numColor];
+        intent.putExtra(DB.COLUMN_COLOR, ContextCompat.getColor(context, color));
+
+        return intent;
     }
 
     @Override
@@ -214,6 +230,12 @@ public class ActivityMain extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        int count = data.getCount();
+        if ((countItems == 0 && count > 0) || (countItems > 0 && count == 0)) {
+            // обновляем меню
+            invalidateOptionsMenu();
+        }
+        countItems = count;
         adapter.swapCursor(data);
     }
 

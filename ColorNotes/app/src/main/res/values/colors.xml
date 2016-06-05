@@ -21,4 +21,17 @@
 
     <color name="colorNoteWhite">#ffffff</color>
     <color name="colorNoteWhiteDark">#aaaaaa</color>
+
+    <color name="colorNoteRed">#e0afb5</color>
+    <color name="colorNoteRedDark">#d80d2b</color>
+
+    <color name="colorNoteOrange">#e5a072</color>
+    <color name="colorNoteOrangeDark">#de6715</color>
+
+    <color name="colorNoteBrown">#93776d</color>
+    <color name="colorNoteBrownDark">#3e1c10</color>
+
+    <color name="colorNoteSea">#76d3fc</color>
+    <color name="colorNoteSeaDark">#000080</color>
+
 </resources>
