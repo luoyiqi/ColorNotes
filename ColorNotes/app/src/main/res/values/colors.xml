@@ -25,10 +25,10 @@
     <color name="colorNoteRed">#e0afb5</color>
     <color name="colorNoteRedDark">#d80d2b</color>
 
-    <color name="colorNoteOrange">#e5a072</color>
+    <color name="colorNoteOrange">#f4a473</color>
     <color name="colorNoteOrangeDark">#de6715</color>
 
-    <color name="colorNoteBrown">#93776d</color>
+    <color name="colorNoteBrown">#af8c80</color>
     <color name="colorNoteBrownDark">#3e1c10</color>
 
     <color name="colorNoteSea">#76d3fc</color>
