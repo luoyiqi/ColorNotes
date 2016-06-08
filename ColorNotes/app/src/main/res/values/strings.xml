@@ -13,12 +13,10 @@
     <!-- Контекстное меню -->
     <string name="context_menu_delete">Удалить</string>
     <string name="context_menu_change_color">Изменить цвет</string>
-    <string name="context_menu_add_widget">Добавить виджет</string>
-    <string name="context_menu_delete_widget">Удалить виджет</string>
 
     <!-- Кнопки -->
     <string name="btn_save">Сохранить</string>
-    <string name="btn_not_save">Не сохранить</string>
+    <string name="btn_not_save">Не сохранять</string>
     <string name="btn_cancel">Отмена</string>
     <string name="btn_negative">Нет</string>
     <string name="btn_positive">Да</string>
